@@ -1,17 +1,20 @@
-// import React from 'react';
-
 interface WordProps {
   word: string;
   guessedLetters: string[];
 }
 
 const Word: React.FC<WordProps> = ({ word, guessedLetters }) => {
+  const letters = Array.from(word).map((letter, index) => ({
+    id: `${word}-${letter}-${index}-${Math.random()}`,
+    letter
+  }));
+
   return (
     <div>
-      {word.split('').map((letter, index) => ( // Divise le mot en lettres et les affiche.
-        <span key={index} style={{ margin: '0 5px' }}>
-          {guessedLetters.includes(letter) ? letter : '_'} 
-        </span> // Affiche la lettre si devinée, sinon un underscore.
+      {letters.map(({ id, letter }) => (
+        <span key={id} style={{ margin: '0 5px' }}>
+          {guessedLetters.includes(letter) ? letter : '_'}
+        </span>
       ))}
     </div>
   );

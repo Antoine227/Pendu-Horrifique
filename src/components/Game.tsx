@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import type { FC } from 'react';
 import Word from './Word';
 import Keyboard from './Keyboard';
